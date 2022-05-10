@@ -14,6 +14,6 @@ const DownloadSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Download = mongoose.Model('Download', DownloadSchema);
+const Download = mongoose.model('Download', DownloadSchema);
 
 export default Download

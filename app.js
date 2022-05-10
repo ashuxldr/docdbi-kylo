@@ -10,6 +10,9 @@ import morgan from 'morgan';
 // database imports
 import connectDb from './config/db.js';
 
+// Router Imports
+import leadsRoutes from "./routes/leadsRoutes.js"
+
 // config loaded
 dotenv.config();
 
@@ -32,11 +35,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // cors
-app.use(cors());
+app.use(cors({origin:"*"}));
 
 app.get('/', (req, res) => {
   res.send(`Welcome to DocDBI server`);
 });
+
+// Routes
+app.use('/api/leads/', leadsRoutes)
+
+
 
 
 const PORT = process.env.PORT || 5000;

@@ -21,7 +21,7 @@ const TicketConversationSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const TicketConversation = mongoose.Model('TicketConversation', TicketConversationSchema);
+const TicketConversation = mongoose.model('TicketConversation', TicketConversationSchema);
 
 export default TicketConversation
 

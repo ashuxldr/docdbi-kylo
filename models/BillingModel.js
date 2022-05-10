@@ -38,6 +38,6 @@ const BillingSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Billing = mongoose.Model('Billing', BillingSchema);
+const Billing = mongoose.model('Billing', BillingSchema);
 
 export default Billing

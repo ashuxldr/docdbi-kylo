@@ -50,6 +50,6 @@ const InvoiceSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Invoice = mongoose.Model('Invoice', InvoiceSchema);
+const Invoice = mongoose.model('Invoice', InvoiceSchema);
 
 export default Invoice

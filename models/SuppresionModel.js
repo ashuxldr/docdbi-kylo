@@ -14,6 +14,6 @@ const SuppresionSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Suppresion = mongoose.Model('Suppresion', SuppresionSchema);
+const Suppresion = mongoose.model('Suppresion', SuppresionSchema);
 
 export default Suppresion

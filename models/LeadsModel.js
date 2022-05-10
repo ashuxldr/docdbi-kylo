@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const LeadsSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:true,
     },
     category:{
         type:mongoose.Schema.Types.ObjectId,
@@ -14,7 +13,6 @@ const LeadsSchema = new mongoose.Schema({
     },
     gender:{
         type:String,
-        enum:['M','F','O']
     },
     contact_name:{
         type:String,
@@ -47,10 +45,10 @@ const LeadsSchema = new mongoose.Schema({
         type:String,
     },
     phone_number:{
-        type:Number,
+        type:String,
     },
     fax:{
-        type:Number,
+        type:String,
     },
     NPI_number:{
         type:Number,
@@ -59,6 +57,6 @@ const LeadsSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Leads = mongoose.Model('Leads', LeadsSchema);
+const Leads = mongoose.model('Leads', LeadsSchema);
 
 export default Leads

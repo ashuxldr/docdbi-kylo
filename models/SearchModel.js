@@ -16,6 +16,6 @@ const SearchSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Search = mongoose.Model('Search', SearchSchema);
+const Search = mongoose.model('Search', SearchSchema);
 
 export default Search

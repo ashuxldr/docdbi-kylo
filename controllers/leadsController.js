@@ -1,7 +1,7 @@
 import Leads from "../models/LeadsModel.js"
+import csvtojson from "csvtojson"
 
-
-module.exports.UploadLeadsCSV = async (req, res) => {
+const UploadLeadsCSV = async (req, res) => {
 	const file = req.file;
 	if (!file) {
 		return res.json({ status: '200', message: 'File is required' });
@@ -19,3 +19,5 @@ module.exports.UploadLeadsCSV = async (req, res) => {
 			console.log(error);
 		});
 };
+
+export {UploadLeadsCSV};

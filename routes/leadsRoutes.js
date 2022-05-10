@@ -4,4 +4,7 @@ const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 import { UploadLeadsCSV } from "../controllers/leadsController.js"
 
-router.route('/uploadCustomerCSV').post(upload.single('file'), UploadLeadsCSV);
+// upload csv file to db @Route /api/leads/uploadCustomerCSV
+router.post('/uploadCustomerCSV', upload.single('file'), UploadLeadsCSV);
+
+export default router;

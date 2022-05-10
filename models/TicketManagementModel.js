@@ -21,6 +21,6 @@ const TicketManagementSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const TicketManagement = mongoose.Model('TicketManagement', TicketManagementSchema);
+const TicketManagement = mongoose.model('TicketManagement', TicketManagementSchema);
 
 export default TicketManagement

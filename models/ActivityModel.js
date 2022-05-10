@@ -22,6 +22,6 @@ const ActivitySchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const Activity = mongoose.Model('Activity', ActivitySchema);
+const Activity = mongoose.model('Activity', ActivitySchema);
 
 export default Activity

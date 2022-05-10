@@ -20,6 +20,6 @@ const LoginHistorySchema = new mongoose.Schema({
 {timestamps:true}
 )
 
-const LoginHistory = mongoose.Model('LoginHistory', LoginHistorySchema);
+const LoginHistory = mongoose.model('LoginHistory', LoginHistorySchema);
 
 export default LoginHistory
