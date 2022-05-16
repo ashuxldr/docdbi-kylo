@@ -4,6 +4,14 @@ const LeadsSchema = new mongoose.Schema({
     name:{
         type:String,
     },
+    title:{
+        type:String,
+    },
+    email:{
+        type:String,
+        trim:true,
+        unique:true
+    },
     category:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Category'
@@ -45,6 +53,9 @@ const LeadsSchema = new mongoose.Schema({
         type:String,
     },
     phone_number:{
+        type:String,
+    },
+    ZIP_code:{
         type:String,
     },
     fax:{

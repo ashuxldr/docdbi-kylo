@@ -12,6 +12,9 @@ import connectDb from './config/db.js';
 
 // Router Imports
 import leadsRoutes from "./routes/leadsRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
+import categoryRoutes from "./routes/categoryRoutes.js"
+import subscriptionRoutes from "./routes/subscriptionRoutes.js"
 
 // config loaded
 dotenv.config();
@@ -43,6 +46,9 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/api/leads/', leadsRoutes)
+app.use('/api/user/', userRoutes)
+app.use('/api/category/', categoryRoutes)
+app.use('/api/subscription/', subscriptionRoutes)
 
 
 
