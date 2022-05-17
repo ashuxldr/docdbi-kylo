@@ -68,6 +68,8 @@ const LeadsSchema = new mongoose.Schema({
 {timestamps:true}
 )
 
+LeadsSchema.index({gender:1, credentials:1, category:1, city:1, state:1, country:1})
+
 const Leads = mongoose.model('Leads', LeadsSchema);
 
 export default Leads

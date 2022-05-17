@@ -67,8 +67,6 @@ const deleteSubscription = async (req, res) => {
     });
 };
 
-
-
 export {createSubscription, updateSubscription, getSubscriptionById, 
             getAllSubscription, deleteSubscription};
 
