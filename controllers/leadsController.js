@@ -41,13 +41,10 @@ const UploadLeadsCSV = async (req, res) => {
 
 const filterGender = async (req, res) => {
 	const {page,query} = req.body;
-	const documentLimit = page*50;
-	const skipLimit = (page-1)*50;
-	await Leads.find(query).skip(skipLimit).limit(50).sort({created_at:-1})
+	Leads.find(query).skip((page-1)*50).limit(50).sort({created_at:1})
 		.then(function (leads) {
 			return res.json({
 				status: '200',
-				count:leads.length,
 				data:leads,
 				message: 'Leads Data fetched Successfully',
 			});
