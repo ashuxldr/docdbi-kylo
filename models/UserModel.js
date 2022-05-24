@@ -17,9 +17,10 @@ const UserSchema = new mongoose.Schema({
         // billingCycle: {type: mongoose.Schema.Types.ObjectId, ref:'Billing'}
     },
     peronalisedType:{
-        subscription:{type: mongoose.Schema.Types.ObjectId, ref:'Subscription' },
+        subscription:{type: mongoose.Schema.Types.ObjectId, ref:'Personalised' },
         // billingCycle: {type: mongoose.Schema.Types.ObjectId, ref:'Billing'}
-        billingCycle: {type: String, default:'monthly'}
+        billingCycle: {type: String, default:'monthly'},
+        team_members: [{type: mongoose.Schema.Types.ObjectId, ref:'User' }]
     },
     email:{
         type:String,
@@ -41,6 +42,9 @@ const UserSchema = new mongoose.Schema({
         type:String,
         default:'user',
         enum:['admin','user']
+    },
+    currentLogin:{
+        type:String
     }
 },
 {timestamps:true}

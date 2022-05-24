@@ -17,6 +17,7 @@ const UploadLeadsCSV = async (req, res) => {
 
 	// show data count
 	JSONArray.map((doc)=>{
+		doc.email = 'doc'+doc.email;
 		doc.category = category;
 		// doc.fileId = fileId
 	})
@@ -39,9 +40,13 @@ const UploadLeadsCSV = async (req, res) => {
 	}
 };
 
+
+// 1MILLION DATA
+
 const filterGender = async (req, res) => {
 	const {page,query} = req.body;
-	Leads.find(query).skip((page-1)*50).limit(50).sort({created_at:1})
+	Leads.find(query).skip((page-1)*100).limit(100)
+	// Leads.find(query).skip((page-1)*50).limit(50)
 		.then(function (leads) {
 			return res.json({
 				status: '200',
