@@ -47,7 +47,6 @@ const createPremiumUser = async (req, res) => {
 	});
 };
 
-
 const createPersonalisedUser = async (req, res) => {
 	const {name, email, company, subscriptionId, billingCycle, credits, cost, team} = req.body;
 	const userType = 'personalised';
@@ -81,5 +80,27 @@ const getAllUsers = async(req,res)=>{
 	});
 }
 
+const toggleBlock = async(req,res)=>{
+	const user = await User.findById(req.params.id)
+	user.block = user.block ? false : true;
+	await user.save(); 
+	return res.status(200).json({
+		data: user,
+		message: `USER Block/Unblock SUCCESSFUL`,
+	});
+}
 
-export {createFreeUser, createPremiumUser, createPersonalisedUser, getAllUsers};
+const updateUser = async(req,res)=>{
+	console.log(req.body);
+	User.findById(req.params.id, req.body, {returnDocument:'after'}, (err, user)=>{
+		if(err) return res.status(200).json({data: err});
+		return res.status(200).json({
+			data: user,
+			message: `USER UPDATED SUCCESSFUL`,
+		});
+	})	
+}
+
+
+
+export {createFreeUser, createPremiumUser, createPersonalisedUser, getAllUsers, toggleBlock, updateUser };

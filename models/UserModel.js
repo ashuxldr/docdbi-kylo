@@ -43,9 +43,14 @@ const UserSchema = new mongoose.Schema({
         default:'user',
         enum:['admin','user']
     },
-    currentLogin:{
-        type:String
-    }
+    block:{
+        type:Boolean,
+        default:false
+    },
+    lastLogin: {
+        type: Date,
+        default: Date.now
+    },
 },
 {timestamps:true}
 )
