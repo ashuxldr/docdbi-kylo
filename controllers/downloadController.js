@@ -1,5 +1,16 @@
 import Download from "../models/DownloadModel";
 
+const createDownload = async(userId) =>{
+    const download = await Download.create({user:userId});
+    console.log(download)
+    res.status(200).json({
+        status:"SUCCESS",
+        data:download,
+        message:"LEADS DOWNLOADED SUCCESSFULLY"
+    })
+}
+
+
 const addLeadsToDownload = async(req,res) =>{
     const leadsId = req.body.leads;
     const download = await Download.findOne({user:req.params.id});
@@ -23,4 +34,4 @@ const getDownloadedLeads = async(req,res) =>{
     })
 }
 
-export {addLeadsToDownload, getDownloadedLeads}
+export {addLeadsToDownload, getDownloadedLeads, createDownload}
