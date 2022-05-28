@@ -10,7 +10,6 @@ const createDownload = async(userId) =>{
     })
 }
 
-
 const addLeadsToDownload = async(req,res) =>{
     const leadsId = req.body.leads;
     const download = await Download.findOne({user:req.params.id});

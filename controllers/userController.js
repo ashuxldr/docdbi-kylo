@@ -71,6 +71,9 @@ const createPersonalisedUser = async (req, res) => {
 	});
 };
 
+
+
+
 const getAllUsers = async(req,res)=>{
 	const {userType} = req.body;
 	const users = await User.find({userType:userType}) 
