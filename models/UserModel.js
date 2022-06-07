@@ -11,17 +11,17 @@ const UserSchema = new mongoose.Schema({
         type:String,
         enum:['free', 'premium', 'personalised']
     },
-    premiumType:{
+    subscriptionType:{
         subscription: {type: mongoose.Schema.Types.ObjectId, ref:'Subscription' },
         billingCycle: {type: String, default:'monthly'}
         // billingCycle: {type: mongoose.Schema.Types.ObjectId, ref:'Billing'}
     },
-    peronalisedType:{
-        subscription:{type: mongoose.Schema.Types.ObjectId, ref:'Personalised' },
-        // billingCycle: {type: mongoose.Schema.Types.ObjectId, ref:'Billing'}
-        billingCycle: {type: String, default:'monthly'},
-        team_members: [{type: mongoose.Schema.Types.ObjectId, ref:'User' }]
-    },
+    // peronalisedType:{
+    //     subscription:{type: mongoose.Schema.Types.ObjectId, ref:'Personalised' },
+    //     // billingCycle: {type: mongoose.Schema.Types.ObjectId, ref:'Billing'}
+    //     billingCycle: {type: String, default:'monthly'},
+    //     team_members: [{type: mongoose.Schema.Types.ObjectId, ref:'User' }]
+    // },
     email:{
         type:String,
         required:true,

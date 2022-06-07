@@ -8,6 +8,6 @@ import { UploadLeadsCSV, filterGender} from "../controllers/leadsController.js"
 router.post('/uploadCustomerCSV', upload.single('file'), UploadLeadsCSV);
 
 // fetch data to db @Route /api/leads/filterGender/:query
-router.get('/filterGender', upload.single('file'), filterGender);
+router.post('/filter_contacts', upload.single('file'), filterGender);
 
 export default router;

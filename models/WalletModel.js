@@ -8,8 +8,9 @@ const WalletSchema = new mongoose.Schema({
     },
     credit:{
         type:Number,
-        default:0
+        default:0 // 4910
     },
+
 },
 {timestamps:true}
 )
