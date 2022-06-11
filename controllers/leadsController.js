@@ -44,10 +44,9 @@ const UploadLeadsCSV = async (req, res) => {
 // 1MILLION DATA
 
 const filterGender = async (req, res) => {
-	const {page,query} = req.body;
+	const {page,query, limits} = req.body;
 	console.log(req.body)
-	Leads.find(query).skip((page-1)*100).limit(100)
-	// Leads.find(query).skip((page-1)*50).limit(50)
+	Leads.find(query).skip((page-1)*limits).limit(limits)
 		.then(function (leads) {
 			return res.json({
 				status: '200',
