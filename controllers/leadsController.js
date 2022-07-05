@@ -10,16 +10,14 @@ const UploadLeadsCSV = async (req, res) => {
 	if (!file) {
 		return res.json({ status: '200', message: 'File is required' });
 	}
-	const category = await Category.findOne({name:"Doctor"});
+	const category = await Category.findById(categoryId);
 	
 	// csv status
 	let JSONArray = await csvtojson().fromString(req.file.buffer.toString());
 
 	// show data count
 	JSONArray.map((doc)=>{
-		doc.email = 'doc'+doc.email;
 		doc.category = category;
-		// doc.fileId = fileId
 	})
 	// api count
 	
@@ -46,11 +44,13 @@ const UploadLeadsCSV = async (req, res) => {
 const filterGender = async (req, res) => {
 	const {page,query, limits} = req.body;
 	console.log(req.body)
+	const count = await Leads.countDocuments(query);
 	Leads.find(query).skip((page-1)*limits).limit(limits)
 		.then(function (leads) {
 			return res.json({
 				status: '200',
 				data:leads,
+				count:count,
 				message: 'Leads Data fetched Successfully',
 			});
 		})
